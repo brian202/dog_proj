@@ -27,6 +27,9 @@
 
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
+	<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap"
+	rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -43,7 +46,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">PET MALL</a>
+              <a class="navbar-brand" href="index.jsp">PET MALL</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav" >
@@ -71,8 +74,8 @@
 			    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			  </form>
  			  <ul style="list-style:none;">
- 			  	<li style="float:right; margin-right:20px"><a href="#">로그인</a></li>
- 			  	<li style="float:right; margin-right:20px"><a href="#">My</a></li>
+ 			  	<li style="float:right; margin-right:20px"><a href="join/LoginForm.jsp">로그인</a></li>
+ 			  	<li style="float:right; margin-right:20px"><a href="cart/ShoppingCart.jsp">My</a></li>
  			  	<li style="float:right; margin-right:20px"><a href="join/joinForm.jsp">회원가입</a></li>
  			  </ul>
             </div>
@@ -91,10 +94,11 @@
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="slide1.jpg" alt="First slide" style = "height : 500px;">
+          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202011091047081.jpg" alt="First slide" style = "height : 500px;">
           <div class="container">
             <div class="carousel-caption">
               <h1>First Slide</h1>
@@ -104,7 +108,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="slide2.jpg" alt="Second slide" style = "height : 500px;">
+          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202011030954481.jpg" alt="Second slide" style = "height : 500px;">
           <div class="container">
             <div class="carousel-caption">
               <h1>Second Slide</h1>
@@ -119,6 +123,16 @@
             <div class="carousel-caption">
               <h1>Third Slide</h1>
               <p>세번째 슬라이드 입니다.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202010161633581.jpg" alt="Third slide" style = "height : 500px;">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>fourth Slide</h1>
+              <p>네번째 슬라이드 입니다.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
             </div>
           </div>
