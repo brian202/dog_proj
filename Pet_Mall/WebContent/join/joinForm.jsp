@@ -229,23 +229,23 @@ div#side_left {
 		<div id="mid_content">
 
 			<div>
-				이름<br /> <input type="text" id="NameField" name="NameField"
+				이름 (*)<br /> <input type="text" id="NameField" name="NameField"
 					placeholder="이름을 입력하세요." /> <br />
 			</div>
 			<div>
-				아이디<br /> <input type="text" id="IDField" name="IDField"
+				아이디 (*)<br /> <input type="text" id="IDField" name="IDField"
 					placeholder="아이디를 입력하세요." />
 			</div>
 			<div>
-				이메일<br /> <input type="text" id="EmailField" name="EmailField"
+				이메일 (*)<br /> <input type="email" id="EmailField" name="EmailField"
 					placeholder="이메일을 입력하세요." />
 			</div>
 			<div>
-				비밀번호<br /> <input type="text" id="PwField" name="PwField"
+				비밀번호 (*)<br /> <input type="text" id="PwField" name="PwField"
 					placeholder="비밀번호를 입력하세요." /> <br />
 			</div>
 			<div>
-				비밀번호 확인<br /> <input type="text" id="PwreField"
+				비밀번호 확인 (*)<br /> <input type="text" id="PwreField"
 					placeholder="비밀번호를 한번 더 입력하세요." />
 			</div>
 			<div>

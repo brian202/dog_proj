@@ -23,22 +23,16 @@
 		
 		conn = DriverManager.getConnection(url, dbUser, dbPass);
 		pstmt = conn.prepareStatement(
-			"insert into pet.member values (?, ?)");
+			"select into pet.member values (?, ?)");
 		pstmt.setString(1, LoginID);
 		pstmt.setString(2, LoginPW);
 
 		
 		pstmt.executeUpdate();
+		
+		response.sendRedirect("../index.jsp");
 	} finally {
 		if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
 %>
-<html>
-<head><title>삽입</title></head>
-<body>
-
-MEMBERS 테이블에 새로운 레코드를 삽입했습니다
-
-</body>
-</html>

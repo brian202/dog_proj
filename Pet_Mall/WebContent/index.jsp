@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../favicon.ico">
 
     <title>::::::: PET MALL :::::::</title>
 
@@ -74,10 +73,10 @@
 			    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			  </form>
  			  <ul style="list-style:none;">
- 			  	<li style="float:right; margin-right:20px"><a href="join/LoginForm.jsp">로그인</a></li>
- 			  	<li style="float:right; margin-right:20px"><a href="cart/ShoppingCart.jsp">My</a></li>
- 			  	<li style="float:right; margin-right:20px"><a href="join/joinForm.jsp">회원가입</a></li>
- 			  </ul>
+ 			  	<li style="float:right; margin-right:20px;"><a href="join/LoginForm.jsp" style="color:#fdfdfd">로그인</a></li>
+ 			  	<li style="float:right; margin-right:20px;"><a href="cart/ShoppingCart.jsp" style="color:#fdfdfd">My</a></li>
+ 			  	<li style="float:right; margin-right:20px;"><a href="join/joinForm.jsp" style="color:#fdfdfd">회원가입</a></li>
+ 			  </ul> 
             </div>
           </div>
         </nav>

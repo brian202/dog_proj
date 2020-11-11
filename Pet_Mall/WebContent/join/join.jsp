@@ -36,16 +36,10 @@
 		pstmt.setString(6, DogAge);
 		
 		pstmt.executeUpdate();
+		
+		response.sendRedirect("../index.jsp");
 	} finally {
 		if (pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
 %>
-<html>
-<head><title>삽입</title></head>
-<body>
-
-MEMBERS 테이블에 새로운 레코드를 삽입했습니다
-
-</body>
-</html>
