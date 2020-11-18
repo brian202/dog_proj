@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,34 +26,23 @@
 
     <!-- Custom styles for this template -->
     <link href="../carousel.css" rel="stylesheet">
-
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap"
-	rel="stylesheet">
-
+	<script type="text/javascript">
+	
+	</script>
 <style type="text/css">
-body {
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
 a:link {
-	color: blue;
+	color: gray;
 	text-decoration: none;
 }
 
 a:visited {
-	color: blue;
+	color: gray;
 	text-decoration: none;
 }
 
 a:hover {
-	color: red;
+	color: black;
 	text-decoration: none;
-}
-
-input::placeholder {
-	font-style: italic;
-	opacity: 1;
 }
 
 div#side_left {
@@ -91,7 +79,7 @@ div#side_left {
 	width: 35%;
 	height: 400px;
 	/* background-color:black; */
-	float: right;
+	float: left;
 	margin: 5px;
 }
 
@@ -103,55 +91,37 @@ div#side_left {
 	margin-top: 95%;
 }
 
-#IDField {
+#LoginID {
 	width: 500px;
 	height: 40px;
 	margin: 5px;
 	border-radius: 5px;
 }
 
-#NameField {
+#LoginPW {
 	width: 500px;
 	height: 40px;
 	margin: 5px;
 	border-radius: 5px;
 }
 
-#PwField, #PwreField {
-	width: 500px;
-	height: 40px;
-	margin: 5px;
-	border-radius: 5px;
-}
-
-#EmailField {
-	width: 500px;
-	height: 40px;
-	margin: 5px;
-	border-radius: 5px;
-}
-
-#DogValue {
-	width: 500px;
-	height: 40px;
-	margin: 5px;
-	border-radius: 5px;
-}
-
-#DogAge {
-	width: 500px;
-	height: 40px;
-	margin: 5px;
-	border-radius: 5px;
-}
-
-#JoinBtn {
+#LoginBtn {
 	width: 500px;
 	height: 40px;
 	background-color: red;
 	margin: 5px;
 	border-radius: 5px;
 	color: white;
+}
+
+#JoinBtn {
+	width: 500px;
+	height: 40px;
+	border-radius: 5px;
+	border-color: red;
+	background-color: white;
+	color: red;
+	margin: 5px;
 }
 
 .findtab {
@@ -161,7 +131,6 @@ div#side_left {
 	font-size: small;
 }
 </style>
-
 </head>
 <body>
 
@@ -215,109 +184,49 @@ div#side_left {
 
       </div>
     </div>
-    
-	<h1 align="center">회원가입</h1>
 
 
+	<h1 align="center">로그인</h1>
 	<div id="side_left">
-
 		<div id="side_left_box"></div>
 		<div id="side_left_box"></div>
 	</div>
 
-	<form action="../join/join.jsp" method="post">
-		<div id="mid_content">
 
-			<div>
-				이름 (*)<br /> <input type="text" id="NameField" name="NameField"
-					placeholder="이름을 입력하세요." /> <br />
-			</div>
-			<div>
-				아이디 (*)<br /> <input type="text" id="IDField" name="IDField"
-					placeholder="아이디를 입력하세요." />
-			</div>
-			<div>
-				이메일 (*)<br /> <input type="email" id="EmailField" name="EmailField"
-					placeholder="이메일을 입력하세요." />
-			</div>
-			<div>
-				비밀번호 (*)<br /> <input type="password" id="PwField" name="PwField"
-					placeholder="비밀번호를 입력하세요." /> <br />
-			</div>
-			<div>
-				비밀번호 확인 (*)<br /> <input type="password" id="PwreField"
-					placeholder="비밀번호를 한번 더 입력하세요." />
-			</div>
-			<div>
-				반려견 종 선택<br /> 
-				<select name="DogValue" id="DogValue">
+<% if(session.getAttribute("LoginID")==null){ //세션이 설정되지 않을 경우 %>
+<form method="post" action="../join/member_ok.jsp">
+	
+	<div id="mid_content">
 
-					<option value="none">선택</option>
-					<option value="Pomeranian">포메라니안</option>
-					<option value="Chihuahua">치와와</option>
-					<option value="Miniature_Pinscher">미니핀</option>
-					<option value="papillon">파피용</option>
-					<option value="Toy_Poodle">토이 푸들</option>
-					<option value="Miniature_Dachshund">미니어쳐 닥스훈트</option>
-					<option value="poodle">푸들</option>
-					<option value="Yorkshire_terrier">요크셔테리어</option>
-					<option value="Maltese">말티즈</option>
-					<option value="Bichon_Frise">비숑 프리제</option>
-					<option value="Miniature_Schnauzer">슈나우저</option>
-					<option value="Pekingese">페키니즈</option>
-					<option value="Pug">퍼그</option>
-					<option value="Welsh_corgi">웰시코기</option>
-					<option value="French_Bulldog">프렌치 불독</option>
-					<option value="Beagle">비글</option>
-					<option value="Cocker_Spaniel">코카 스파니엘</option>
-					<option value="Boston_Terrier">보스턴 테리어</option>
-					<option value="Shetland_Sheepdog">셔틀랜드 쉽독</option>
-					<option value="Italian_Greyhound">이탈리안 그레이하운드</option>
-					<option value="Scottish_Terrier">스코티시 테리어</option>
-					<option value="Bedlington_Terrier">베들링턴 테리어</option>
-					<option value="Shibainu">시바이누</option>
-					<option value="Border_collie">보더콜리</option>
-					<option value="Bull_Terrier">불테리어</option>
-					<option value="Shih_Tzu">시추</option>
+		<div>
+			<input type="text" name = "LoginID" id="LoginID" placeholder="아이디 또는 이메일을 입력해주세요." />
+			<br/>
+		</div>
+		<div>
+			<input type="password" name = "LoginPW" id="LoginPW" placeholder="비밀번호를 입력해주세요." />
+		</div>
+		<div>
+			<input type="checkbox" /> 자동 로그인
+		</div>
+		<div>
+			<input type="submit" id="LoginBtn" value="로그인"/>
+		</div>
+		<div>
+			<input type="button" id="JoinBtn" onClick="location.href='joinForm.jsp'"
+				value="회원가입" />
+		</div>
 
-				</select>
-			</div>
-			<div>
-				반려견 나이 선택<br /> 
-				<select name="age" id="DogAge" name="DogAge">
-					<option value="none">선택</option>
-					<option value="age0">12개월 미만</option>
-					<option value="age1">1</option>
-					<option value="age2">2</option>
-					<option value="age3">3</option>
-					<option value="age4">4</option>
-					<option value="age5">5</option>
-					<option value="age6">6</option>
-					<option value="age7">7</option>
-					<option value="age8">8</option>
-					<option value="age9">9</option>
-					<option value="age10">10</option>
-					<option value="age11">11</option>
-					<option value="age12">12</option>
-					<option value="age13">13</option>
-					<option value="age16">14</option>
-					<option value="age16">15</option>
-					<option value="age16">16</option>
-				</select>
-			</div>
-
-			<div>
-
-				<input type="submit" id="JoinBtn" value="회원가입"/>
-
+		<div class="findtab">
+			<a href="">아이디 찾기</a> | <a href="">비밀번호 찾기</a>
+		</div>
+	</div>
+</form>
+	<% }else{ %>
+		<form method="post" action="../join/logout.jsp">
+		<input type="submit" value="로그아웃" />
 	</form>
-	</div>
-	<div class="">
-		본인은 만 14세 이상이며, <a href="#">이용약관</a>,<a href="#">개인정보 수집 및 이용</a> 내용을 확인 하였으며, 동의합니다.
-	</div>
-	</div>
-
-
+<% } %>
+</form>
 
 
 </body>

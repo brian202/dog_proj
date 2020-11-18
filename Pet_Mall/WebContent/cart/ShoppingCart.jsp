@@ -89,9 +89,16 @@ function fnCart(name, price) {
 			    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			  </form>
  			  <ul style="list-style:none;">
- 			  	<li style="float:right; margin-right:20px"><a href="../join/LoginForm.jsp">로그인</a></li>
- 			  	<li style="float:right; margin-right:20px"><a href="../cart/ShoppingCart.jsp">My</a></li>
- 			  	<li style="float:right; margin-right:20px"><a href="../join/joinForm.jsp">회원가입</a></li>
+				<form method="post" action="../index.jsp" style="color:gray; float:right">
+				
+
+				
+					<%=session.getAttribute("id") %>님 환영합니다~
+					<input type="submit" value="로그아웃" />
+					
+					<li style= "margin-right:20px;"><a href="../cart/ShoppingCart.jsp" style="color:#fdfdfd">My</a></li>
+
+				</form>
  			  </ul>
             </div>
           </div>

@@ -1,3 +1,4 @@
+<%@page import="java.io.OutputStream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,6 +9,8 @@
 <%@ page import = "java.sql.PreparedStatement" %>
 <%@ page import = "java.sql.SQLException" %>
 <%@ page import = "java.sql.ResultSet" %>
+<%@ page import = "java.io.OutputStream" %>
+<%@ page import = "java.io.InputStream" %>
 <%
 	Connection conn=null;
 	PreparedStatement pstmt=null;
@@ -21,17 +24,22 @@
 	    String sql="select * from pet.product";
 	    pstmt = conn.prepareStatement(sql);
 	    rs = pstmt.executeQuery();
+	    OutputStream output = response.getOutputStream();
+
+
 	    while(rs.next()){
 	        String p_id = rs.getString("product_id");
 	        String p_brand = rs.getString("product_brand");
 	        String p_name = rs.getString("product_name");
 	        String p_price = rs.getString("product_price");
 	        String p_desc = rs.getString("product_desc");
-// 	        String p_url = rs.getString("product_url");
+	        InputStream input = rs.getBinaryStream("product_url");
+
 // 	        String p_weight = rs.getString("prouct_weight");
 // 	        String p_price_100 = rs.getString("product_price_100");
 
-%>
+%> 
+
 
   <head>
     <meta charset="utf-8">
@@ -108,17 +116,7 @@
               <ul>
               
 			  </ul>
- 			  <ul style="list-style:none;">
-				<form method="post" action="../index.jsp" style="color:gray; float:right">
 
-				
-					<%=session.getAttribute("id") %>님 환영합니다~
-					<input type="submit" value="로그아웃" />
-					
-					<li style= "margin-right:20px;"><a href="../cart/ShoppingCart.jsp" style="color:#fdfdfd">My</a></li>
-
-				</form>
-			</ul>
             </div>
           </div>
         </nav>
@@ -126,107 +124,67 @@
       </div>
     </div>
 
-
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202011091047081.jpg" alt="First slide" style = "height : 500px;">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>First Slide</h1>
-              <p>첫번째 슬라이드 입니다.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202011030954481.jpg" alt="Second slide" style = "height : 500px;">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Second Slide</h1>
-              <p>두번째 슬라이드 입니다.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202010120936371.jpg" alt="Third slide" style = "height : 500px;">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Third Slide</h1>
-              <p>세번째 슬라이드 입니다.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img src="https://img.dogpre.com/web/dogpre/event/main_banner/sno_top1_202010161633581.jpg" alt="Third slide" style = "height : 500px;">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>fourth Slide</h1>
-              <p>네번째 슬라이드 입니다.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">바로 가기</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div><!-- /.carousel -->
+	
 
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing" style="width : 1400px;">
-
+	
+    <div class="container marketing" style="width : 1200px;">
+	
+	 <div class = "search-filter" style = "float : left; width : 200px;">
+	 	<div class = "search-filter-options" style = "position : relative; width : 200px;">
+	 		
+	 	</div>
+	 </div>
       <!-- Three columns of text below the carousel -->
       <div class="row">
  		<div class="title" align = "right">
  		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="../test/search_all.jsp" role="button">더보기 &raquo;</a>
  		</div>
-        <tr><div class="col-lg-4" style="width : 20%;">
+ 		
+	 		<table>
+		 		<tr>
+		 			<td><%=input %></td>
+		 			<td><%=p_name %></td>
+		 			<td><%=p_price %>원</td>
+		 			<td><%=p_desc %></td>
+		 		</tr>
+		 		<tr>
+		 			<td><%=input %></td>
+		 			<td><%=p_name %></td>
+		 			<td><%=p_price %>원</td>
+		 			<td><%=p_desc %></td>
+		 		</tr>
+	 		</table>
+
+
+        <div class="col-lg-4" style="width : 15%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <td><h3><%=p_name %></h3>
-          <td><p><%=p_price %>원</p>
-          <td><p><%=p_desc %></p>
+          <h3><%=p_name %></h3>
+          <p><%=p_price %>원</p>
+          <p><%=p_desc %></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
+        <div class="col-lg-4" style="width : 15%;">
           <img class="img-circle" src="https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/product/image/vendoritem/2019/03/14/3000281274/4057ec60-4cde-47d9-8cfc-3a6f3f2d3e05.jpg" alt="Generic placeholder image">
           <h3><%=p_name %></h3>
           <p><%=p_price %>원</p>
           <p><%=p_desc %></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
+        <div class="col-lg-4" style="width : 15%;">
           <img class="img-circle" src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/85907803434094-ef9a75a5-997b-4852-8916-2357c33b87c8.jpg" alt="Generic placeholder image">
           <h3><%=p_name %></h3>
           <p><%=p_price %>원</p>
           <p><%=p_desc %></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
+        <div class="col-lg-4" style="width : 15%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
           <h3><%=p_name %></h3>
           <p><%=p_price %>원</p>
           <p><%=p_desc %></p>
         </div>
-        <div class="col-lg-4" style="width : 20%;">
+        <div class="col-lg-4" style="width : 15%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
           <h3><%=p_name %></h3>
           <p><%=p_price %>원</p>
@@ -239,72 +197,48 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-
-      <div class="row featurette">
-      	<div class="title" align = "right">
- 		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
- 		</div>
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어</h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/product/image/vendoritem/2019/03/14/3000281274/4057ec60-4cde-47d9-8cfc-3a6f3f2d3e05.jpg" alt="Generic placeholder image">
-          <h3>나우 그레인프리 스몰브리드</h3>
-          <p>이에 대한 설명 혹은 가격2(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/85907803434094-ef9a75a5-997b-4852-8916-2357c33b87c8.jpg" alt="Generic placeholder image">
-          <h3>아카나  스몰브리드</h3>
-          <p>이에 대한 설명 혹은 가격3(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어 2 </h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div>
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어 3 </h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div>
-      </div>
+		<tr>
+			<td><%=p_id %></td>
+		    <td><%=p_brand %></td>
+		    <td><%=p_name %></td>
+		    <td><%=p_price %></td>
+		    <td><%=p_desc %></td>
+		</tr>
+		
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="title" align = "right">
- 		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
- 		</div>
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어</h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/product/image/vendoritem/2019/03/14/3000281274/4057ec60-4cde-47d9-8cfc-3a6f3f2d3e05.jpg" alt="Generic placeholder image">
-          <h3>나우 그레인프리 스몰브리드</h3>
-          <p>이에 대한 설명 혹은 가격2(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/85907803434094-ef9a75a5-997b-4852-8916-2357c33b87c8.jpg" alt="Generic placeholder image">
-          <h3>아카나  스몰브리드</h3>
-          <p>이에 대한 설명 혹은 가격3(?)</p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어 2 </h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div>
-        <div class="col-lg-4" style="width : 20%;">
-          <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
-          <h3>로얄캐닌 독 미니 인도어 3 </h3>
-          <p>이에 대한 설명 혹은 가격(?)</p>
-        </div>
-      </div>
+<!--       <div class="row featurette"> -->
+<!--         <div class="title" align = "right"> -->
+<!--  		  <h2 align = "left">이 상품 어때요?</h2> -->
+<!-- 		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a> -->
+<!--  		</div> -->
+<!--         <div class="col-lg-4" style="width : 20%;"> -->
+<!--           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image"> -->
+<!--           <h3>로얄캐닌 독 미니 인도어</h3> -->
+<!--           <p>이에 대한 설명 혹은 가격(?)</p> -->
+<!--         </div>/.col-lg-4 -->
+<!--         <div class="col-lg-4" style="width : 20%;"> -->
+<!--           <img class="img-circle" src="https://thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/product/image/vendoritem/2019/03/14/3000281274/4057ec60-4cde-47d9-8cfc-3a6f3f2d3e05.jpg" alt="Generic placeholder image"> -->
+<!--           <h3>나우 그레인프리 스몰브리드</h3> -->
+<!--           <p>이에 대한 설명 혹은 가격2(?)</p> -->
+<!--         </div>/.col-lg-4 -->
+<!--         <div class="col-lg-4" style="width : 20%;"> -->
+<!--           <img class="img-circle" src="https://thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/85907803434094-ef9a75a5-997b-4852-8916-2357c33b87c8.jpg" alt="Generic placeholder image"> -->
+<!--           <h3>아카나  스몰브리드</h3> -->
+<!--           <p>이에 대한 설명 혹은 가격3(?)</p> -->
+<!--         </div>/.col-lg-4 -->
+<!--         <div class="col-lg-4" style="width : 20%;"> -->
+<!--           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image"> -->
+<!--           <h3>로얄캐닌 독 미니 인도어 2 </h3> -->
+<!--           <p>이에 대한 설명 혹은 가격(?)</p> -->
+<!--         </div> -->
+<!--         <div class="col-lg-4" style="width : 20%;"> -->
+<!--           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image"> -->
+<!--           <h3>로얄캐닌 독 미니 인도어 3 </h3> -->
+<!--           <p>이에 대한 설명 혹은 가격(?)</p> -->
+<!--         </div> -->
+<!--       </div> -->
 
       <hr class="featurette-divider">
 
@@ -325,9 +259,8 @@
         <p class="pull-right"><a href="#">Back to top</a></p>
         <p>&copy; 2020 에이콘 아카데미 2조, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
-
+	
     </div><!-- /.container -->
-
 
 <%
             }
@@ -353,5 +286,9 @@
     <script src="../assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    
   </body>
 </html>
+
+

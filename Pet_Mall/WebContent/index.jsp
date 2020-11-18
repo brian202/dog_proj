@@ -158,7 +158,7 @@
       <div class="row">
  		<div class="title" align = "right">
  		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
+		  <a class="btn btn-default" href="test/search_all.jsp" role="button">더보기 &raquo;</a>
  		</div>
         <div class="col-lg-4" style="width : 20%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
@@ -195,7 +195,7 @@
       <div class="row featurette">
       	<div class="title" align = "right">
  		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
+		  <a class="btn btn-default" href="../test/search_all.jsp" role="button">더보기 &raquo;</a>
  		</div>
         <div class="col-lg-4" style="width : 20%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
@@ -229,7 +229,7 @@
       <div class="row featurette">
         <div class="title" align = "right">
  		  <h2 align = "left">이 상품 어때요?</h2>
-		  <a class="btn btn-default" href="#" role="button">더보기 &raquo;</a>
+		  <a class="btn btn-default" href="../test/search_all.jsp" role="button">더보기 &raquo;</a>
  		</div>
         <div class="col-lg-4" style="width : 20%;">
           <img class="img-circle" src="https://img.dogpre.com/mobile/dogpre/product/63/62596_list_L1_01611518.jpg" alt="Generic placeholder image">
