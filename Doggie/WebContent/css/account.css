@@ -1,0 +1,92 @@
+/* ############# 로그인/회원가입 페이지 ############## */
+
+.account {
+    padding-top: 100px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.account_title {
+    margin-bottom: 30px;
+    font-weight: 100;
+}
+
+form {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.login_form {
+    margin-top: 70px;
+}
+
+.prod_btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='submit'] {
+    width: 300px;
+    height: 25px;
+    outline: none;
+    border-radius: 25px;
+    font-size: 15px;
+    color: gray;
+
+    padding: 10px 15px;
+
+    border: 1px solid #8484a0;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.dog_info {
+    /* margin: 0 auto;
+    width: 280px; */
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.dog_species {
+}
+
+select {
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 13px;
+    padding: 8px;
+    color: gray;
+    border: 1px solid #8484a0;
+}
+
+input[type='submit'] {
+    width: 220px;
+    display: block;
+    margin: 0 auto;
+    background-color: #cc746b;
+    color: #f9f9fc;
+    border: 1px solid #cc746b;
+    height: 45px;
+    margin-top: 20px;
+}
+
+fieldset {
+    border: 0;
+    text-align: left;
+    color: #000;
+    margin-top: 30px;
+}
+
+.checkbox {
+    padding: 6px 0;
+}
+
+label {
+    padding-left: 6px;
+}

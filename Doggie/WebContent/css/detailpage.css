@@ -1,0 +1,195 @@
+/* ########### �긽�꽭�럹�씠吏� ############# */
+
+.detailpage {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.product {
+    /* width: 100%; */
+    height: auto;
+    display: flex;
+    margin-top: 130px;
+    margin-bottom: 100px;
+    padding: 0 20px;
+}
+
+.product_visual,
+.product_order {
+    display: inline-block;
+    width: 50%;
+    padding: 0 50px;
+}
+
+.product_order {
+    padding-top: 20px;
+}
+
+.img_wrap {
+    /* border-radius: 20px; */
+    width: 500px;
+    height: 550px;
+    background-image: url('https://img.dogpre.com/mobile/dogpre/product/81/80534_originalView_01776306.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: -5px 2px 30px 20px rgb(212 212 212 / 41%);
+}
+
+.img_wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+.star_rating {
+    display: inline-block;
+    width: auto;
+}
+
+.stars,
+.rating {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.rating {
+    color: #999999;
+    font-weight: 400;
+}
+
+.prod_title {
+    font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: rgb(65, 65, 65);
+}
+
+.prod_price {
+    display: inline;
+    font-weight: 100;
+    color: rgb(65, 65, 65);
+}
+
+/* purchase */
+.purchase {
+    margin-top: 200px;
+    margin-bottom: 30px;
+    height: 38px;
+    border-top: 1px solid rgb(189, 186, 186);
+    text-align: right;
+    padding: 10px 0;
+}
+
+.num_quantity {
+    display: inline-block;
+    width: auto;
+    padding: 4px;
+    margin-right: 20px;
+    height: 30px;
+}
+
+.btn_down,
+.btn_up {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1.5;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: #b4b4b4;
+}
+
+.number {
+    width: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #1d6aba;
+    text-align: center;
+}
+
+.total_price {
+    font-size: 25px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1.5;
+    vertical-align: middle;
+    color: rgb(126, 126, 126);
+}
+
+.total_price span {
+    font-size: 26px;
+}
+
+.prod_btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buy_btn,
+.cart_btn {
+    width: 100px;
+    padding: 10px 15px;
+    background-color: #cc746b;
+    border-radius: 25px;
+}
+
+.buy_btn {
+    margin-right: 10px;
+    background-color: transparent;
+    border: 1px solid #cc746b;
+    border-radius: 25px;
+    vertical-align: middle;
+}
+
+.buy_btn a,
+.cart_btn a {
+    font-weight: 300;
+    font-size: 17px;
+    color: #fff;
+}
+
+.buy_btn a {
+    color: #852d24;
+}
+
+/* tablist */
+
+.tablist_wrap {
+    margin-bottom: 80px;
+    display: inline-block;
+    /* position: sticky; */
+    top: 0;
+    /* border-bottom: 2px solid rgb(170, 170, 170); */
+}
+
+.tabs {
+    display: table;
+    table-layout: fixed;
+    list-style: none;
+    float: left;
+    width: 100%;
+}
+
+.tabs li {
+    /* all: unset; */
+    display: table-cell;
+    width: 25%;
+    border-bottom: 2px solid rgb(170, 170, 170);
+    line-height: 50px;
+    height: 50px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tabs li.active {
+    border-bottom-color: rgb(17, 15, 15);
+    color: rgb(17, 15, 15);
+}
+
+.prod_detail {
+    text-align: center;
+}
+
+.prod_detail img {
+    width: 70%;
+}
